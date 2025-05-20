@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import './Login.css'; // Import the CSS file
+import './Login.css';
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -15,10 +15,15 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://explorease-a7c6.onrender.com', formData);
+      const response = await axios.post(
+        'https://explorease-a7c6.onrender.com/api/auth/login',
+        formData,
+        { withCredentials: true } // Enable this only if you're using sessions or cookies
+      );
+
       if (response && response.data) {
         setMessage('Login successful! Redirecting to home page...');
-        setTimeout(() => navigate('/home'), 0);
+        setTimeout(() => navigate('/home'), 1000);
       } else {
         setMessage('Unexpected response format.');
       }
