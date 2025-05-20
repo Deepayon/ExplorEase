@@ -22,6 +22,11 @@ const MongoStore = require('connect-mongo');
 const app = express();
 connectDB();
 
+//payment
+const paymentRoutes = require('./routes/paymentRoutes');
+app.use('/api/payment', paymentRoutes);
+
+
 // ✅ Secure CORS setup
 const allowedOrigins = [
   'https://exploreaze.netlify.app',
