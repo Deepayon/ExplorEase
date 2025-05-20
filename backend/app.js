@@ -18,7 +18,7 @@ require('dotenv').config();
 const cors = require('cors');
 const app = express();  
 connectDB();  
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'https://682c4e729262b0c793d1c4aa--exploreaze.netlify.app/' }));
 // Middleware  
 app.use(express.json());  
 app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: true }));  
