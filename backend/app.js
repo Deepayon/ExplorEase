@@ -1,3 +1,5 @@
+// app.js
+
 const express = require('express');  
 const session = require('express-session');  
 const passport = require('passport');  
@@ -14,11 +16,27 @@ const { errorHandler } = require('./middleware/errorMiddleware');
 
 require('dotenv').config();  
 
-// Initialize app and connect to database  
 const cors = require('cors');
 const app = express();  
 connectDB();  
-app.use(cors({ origin: 'https://682c4e729262b0c793d1c4aa--exploreaze.netlify.app/' }));
+
+// ✅ Replace this whole CORS block
+const allowedOrigins = [
+  'https://exploreaze.netlify.app',                    // production
+  'https://682c4e729262b0c793d1c4aa--exploreaze.netlify.app', // preview (optional)
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
+
 // Middleware  
 app.use(express.json());  
 app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: true }));  
