@@ -15,7 +15,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/signup', formData);
+      const response = await axios.post('https://682c4e729262b0c793d1c4aa--exploreaze.netlify.app/signup', formData);
       if (response && response.data) {
         setMessage('Signup successful! Redirecting to login page...');
         setFormData({ username: '', password: '' });

@@ -15,7 +15,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const response = await axios.post('https://682c4e729262b0c793d1c4aa--exploreaze.netlify.app/Login', formData);
       if (response && response.data) {
         setMessage('Login successful! Redirecting to home page...');
         setTimeout(() => navigate('/home'), 0);
