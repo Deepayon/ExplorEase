@@ -1,4 +1,4 @@
-import React from 'react';  
+import React from 'react'; 
 import Feature from './Feature';  
 
 const Features = () => {  
@@ -9,7 +9,7 @@ const Features = () => {
         { title: "Flights", description: "Compare and book affordable flights with ease." },  
         { title: "Car Rentals", description: "Rent vehicles at competitive prices." },  
         { title: "Cruises", description: "Sail away on luxurious cruises tailored for you." },  
-        { title: "24/7 Support", description: "We’re here to help anytime, anywhere." },  
+        { title: "24/7 Support", description: "We're here to help anytime, anywhere." },  
         { title: "Travel Insurance", description: "Secure your trips with our comprehensive plans." },  
     ];  
 
