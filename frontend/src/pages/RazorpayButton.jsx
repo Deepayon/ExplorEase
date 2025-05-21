@@ -4,7 +4,7 @@ import axios from 'axios';
 const RazorpayButton = () => {
   const displayRazorpay = async () => {
     try {
-      const { data: order } = await axios.post('https://your-backend-url/api/payment/create-order', {
+      const { data: order } = await axios.post('https://explorease-a7c6.onrender.com/api/payment/create-order', {
         amount: 500, // Amount in INR
       });
 
@@ -17,7 +17,7 @@ const RazorpayButton = () => {
         order_id: order.id,
         handler: async function (response) {
           try {
-            const verifyRes = await axios.post('https://your-backend-url/api/payment/verify', response);
+            const verifyRes = await axios.post('https://explorease-a7c6.onrender.com/api/payment/verify', response);
             alert(verifyRes.data.message);
           } catch (err) {
             alert('Verification failed');
