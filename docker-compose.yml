@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:6.0-jammy
+    container_name: exploreease-mongo
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - exploreease-net
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: exploreease-backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - mongo
+    networks:
+      - exploreease-net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: exploreease-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"  # React built and served via nginx on port 80
+    depends_on:
+      - backend
+    networks:
+      - exploreease-net
+
+volumes:
+  mongo-data:
+
+networks:
+  exploreease-net:
+    driver: bridge
