@@ -15,7 +15,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://explorease-a7c6.onrender.com', formData);
+      const response = await axios.post('https://explorease-kyrp.onrender.com', formData);
       if (response && response.data) {
         setMessage('Signup successful! Redirecting to login page...');
         setFormData({ username: '', password: '' });

@@ -16,7 +16,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'https://explorease-a7c6.onrender.com/api/auth/login',
+        'https://explorease-kyrp.onrender.com/api/auth/login',
         formData,
         { withCredentials: true } // Enable this only if you're using sessions or cookies
       );
