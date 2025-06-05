@@ -1,0 +1,38 @@
+/* FlightResults.css - Comprehensive Styling */
+.flight-results-container {
+  margin-top: 2rem;
+}
+
+.results-title {
+  text-align: center;
+  color: var(--dark-text);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.flight-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.flight-results-empty {
+  text-align: center;
+  padding: 3rem;
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.empty-illustration {
+  max-width: 250px;
+  margin-bottom: 1.5rem;
+}
+
+.flight-results-empty p {
+  color: var(--light-text);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}

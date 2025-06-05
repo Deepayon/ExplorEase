@@ -1,0 +1,38 @@
+/* TravelModes.css - Comprehensive Styling */
+.travel-modes {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  background-color: var(--white);
+  padding: 1rem;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.travel-modes__button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid transparent;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.travel-modes__button.active {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  border-color: var(--primary-blue);
+}
+
+.travel-modes__icon {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.travel-modes__label {
+  font-weight: 600;
+  font-size: 1rem;
+}

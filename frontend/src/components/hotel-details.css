@@ -1,0 +1,234 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --text-color: #333;
+    --background-color: #f4f6f7;
+    --border-radius: 12px;
+    --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+  
+  .hotel-details {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+  }
+  
+  .hotel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+  }
+  
+  .hotel-header-content {
+    flex: 1;
+  }
+  
+  .hotel-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+  }
+  
+  .hotel-header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .hotel-rating {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+  }
+  
+  .hotel-rating span {
+    color: gold;
+    margin-right: 0.5rem;
+  }
+  
+  .hotel-details-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .hotel-description {
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  .hotel-price-badge {
+    background: var(--secondary-color);
+    color: white;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .hotel-amenities {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .amenity-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--background-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease;
+  }
+  
+  .amenity-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hotel-rooms-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+    margin-top: 2rem;
+  }
+  
+  .hotel-rooms-table th {
+    text-align: left;
+    padding: 1rem;
+    background: var(--background-color);
+    color: var(--primary-color);
+  }
+  
+  .hotel-rooms-table td {
+    padding: 1rem;
+    background: #f9f9f9;
+    border-bottom: 2px solid var(--background-color);
+  }
+  
+  .room-status {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+  }
+  
+  .room-available {
+    background-color: rgba(46, 204, 113, 0.1);
+    color: #2ecc71;
+  }
+  
+  .room-unavailable {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+  }
+  
+  .hotel-booking-section {
+    background: linear-gradient(135deg, #f6f8f9 0%, #e5ebee 100%);
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid var(--background-color);
+  }
+  
+  .booking-cta {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .booking-cta:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  @media (max-width: 768px) {
+    .hotel-details-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .hotel-header {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+
+  /* Previous CSS remains the same, adding booking form styles */
+.booking-form {
+    background: var(--background-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  }
+  
+  .booking-submit {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .booking-submit:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }

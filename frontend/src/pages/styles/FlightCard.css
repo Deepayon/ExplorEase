@@ -1,0 +1,129 @@
+/* FlightCard.css - Comprehensive Styling */
+.flight-card {
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  transition: all var(--transition-speed);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.flight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, var(--primary-blue), var(--secondary-green));
+}
+
+.flight-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.flight-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.airline-logo {
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary-blue);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.flight-details {
+  flex-grow: 1;
+  margin-left: 1rem;
+}
+
+.flight-details h3 {
+  font-size: 1.3rem;
+  color: var(--dark-text);
+  margin-bottom: 0.3rem;
+}
+
+.flight-number {
+  color: var(--light-text);
+  font-size: 0.9rem;
+}
+
+.flight-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary-green);
+}
+
+.flight-route {
+  margin-bottom: 1.5rem;
+}
+
+.route-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.departure-city, .arrival-city {
+  font-weight: 600;
+  color: var(--dark-text);
+}
+
+.route-connector {
+  position: relative;
+  flex-grow: 1;
+  margin: 0 1rem;
+}
+
+.route-line {
+  height: 2px;
+  background-color: #e0e0e0;
+}
+
+.route-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary-blue);
+  border-radius: 50%;
+}
+
+.flight-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flight-time {
+  display: flex;
+  flex-direction: column;
+}
+
+.flight-duration {
+  color: var(--light-text);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.seats-availability {
+  color: var(--secondary-green);
+  font-weight: 600;
+}

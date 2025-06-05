@@ -1,0 +1,96 @@
+:root {
+    --deep-navy: #1A2B3C;
+    --soft-gold: #D4AF37;
+    --pristine-white: #FFFFFF;
+    --subtle-gray: #F5F7FA;
+    --elegant-shadow: rgba(0, 0, 0, 0.08);
+  }
+  
+  .hotel-details {
+    max-width: 1100px;
+    margin: 3rem auto;
+    background: var(--pristine-white);
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    font-family: 'Optima', 'Palatino', serif;
+  }
+  
+  .hotel-header {
+    background: linear-gradient(120deg, var(--deep-navy) 0%, #334155 100%);
+    color: var(--pristine-white);
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .hotel-header h2 {
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hotel-header p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 600px;
+  }
+  
+  .hotel-details-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: 2.5rem;
+  }
+  
+  .hotel-rooms table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--subtle-gray);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px var(--elegant-shadow);
+  }
+  
+  .hotel-rooms th {
+    background: var(--deep-navy);
+    color: var(--pristine-white);
+    padding: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .hotel-rooms td {
+    padding: 1.2rem;
+    border-bottom: 1px solid #e2e8f0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .hotel-rooms tr:hover td {
+    background-color: rgba(212, 175, 55, 0.05);
+  }
+  
+  .hotel-amenities ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .hotel-amenities li {
+    background: var(--pristine-white);
+    padding: 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--elegant-shadow);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .hotel-amenities li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
