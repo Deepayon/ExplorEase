@@ -54,3 +54,4 @@ app.use('/api/ai', aiRoutes);
 app.use(errorHandler);  
 
 module.exports = app;
+
