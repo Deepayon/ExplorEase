@@ -7,8 +7,10 @@ import {
   MapPin, 
   Clock, 
   ShieldCheck,
-  Package
+  Package,
+  Bot // Import Bot icon
 } from 'lucide-react';
+import { Link } from 'react-router-dom'; // Add this import
 import './styles.css';
 
 
@@ -20,19 +22,40 @@ const iconMap = {
   "Car Rentals": Car,
   "Cruises": Ship,
   "24/7 Support": Clock,
-  "Travel Insurance": ShieldCheck
+  "Travel Insurance": ShieldCheck,
+  "AI Assistant": Bot // Changed icon to Bot
+};
+
+// Add a map for routes
+const routeMap = {
+  "Hotels": "/hotels",
+  "Flights": "/flights",
+  "Packages": "/packages",
+  "AI Assistant": "/assistant" // Add route for AI Assistant
 };
 
 const Feature = ({ title, description }) => {
   const IconComponent = iconMap[title] || MapPin;
-  
-  return (
-    <div className="feature-card">
+  const route = routeMap[title];
+
+  const cardContent = (
+    <>
       <div className="feature-icon">
         <IconComponent size={32} strokeWidth={1.5} />
       </div>
       <div className="feature-title">{title}</div>
       <div className="feature-description">{description}</div>
+    </>
+  );
+
+  // If the feature has a route, wrap it in a Link
+  return route ? (
+    <Link to={route} className="feature-card feature-link">
+      {cardContent}
+    </Link>
+  ) : (
+    <div className="feature-card">
+      {cardContent}
     </div>
   );
 };
@@ -40,13 +63,13 @@ const Feature = ({ title, description }) => {
 const Features = () => {
   const featuresData = [
     { title: "Hotels", description: "Find the perfect stay for your journey." },
-    { title: "Transport", description: "Book the most convenient travel options." },
+    { title: "Flights", description: "Compare and book affordable flights with ease." }, // Flights second
     { title: "Packages", description: "Explore curated travel packages for your destination." },
-    { title: "Flights", description: "Compare and book affordable flights with ease." },
     { title: "Car Rentals", description: "Rent vehicles at competitive prices." },
     { title: "Cruises", description: "Sail away on luxurious cruises tailored for you." },
     { title: "24/7 Support", description: "We're here to help anytime, anywhere." },
-    { title: "Travel Insurance", description: "Secure your trips with our comprehensive plans." }
+    { title: "Travel Insurance", description: "Secure your trips with our comprehensive plans." },
+    { title: "AI Assistant", description: "Chat with EaseBot for instant travel help." } // AI last
   ];
 
   return (

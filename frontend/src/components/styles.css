@@ -67,6 +67,20 @@
     font-size: 0.9rem;
     line-height: 1.6;
   }
+
+  
+  .feature-link {
+    text-decoration: none !important;
+    color: inherit;
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  
+  .feature-link:hover {
+    box-shadow: 0 4px 24px rgba(25, 118, 210, 0.15);
+    transform: translateY(-4px) scale(1.03);
+    text-decoration: none !important;
+  }
   
   @media (max-width: 1024px) {
     .features-grid {
