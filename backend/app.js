@@ -47,7 +47,7 @@ app.use("/api/bookings",bookingRoutes)
 app.use("/api/hotels",hotelRoutes)
 
 // AI Routes
-const aiRoutes = require('./routes/aiRoutes');
+const aiRoutes = require('./routes/AiRoutes');
 app.use('/api/ai', aiRoutes);
 
 // Error handling middleware  
