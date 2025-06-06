@@ -77,6 +77,7 @@ const Navbar = () => {
             <li><Link to="/flights" class="nav-link">Flights</Link></li>
             <li><Link to="/hotels" class="nav-link">Hotels</Link></li>
             <li><Link to="/packages" class="nav-link">Packages</Link></li>
+            <li><Link to="/assistant" class="nav-link">EaseBot</Link></li> {/* Add this line */}
           </ul>
 
           <div class="auth-section">

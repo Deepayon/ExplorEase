@@ -45,8 +45,10 @@ const Packages = () => {
 
   return (
     <div className="packages-container">
-      <h1 className="packages-title">Exclusive Travel Experiences</h1>
-      
+      <div className="packages-header">
+        <h1 className="packages-title">Exclusive Travel Experiences</h1>
+        <h2 className="packages-subheading">Curated packages for every kind of traveler</h2>
+      </div>
       {loading ? (
         <div className="loading-spinner"></div>
       ) : (
@@ -76,7 +78,6 @@ const Packages = () => {
           ))}
         </div>
       )}
-      
       <style jsx>{`
         .packages-container {
           font-family: 'Inter', sans-serif;
@@ -86,12 +87,46 @@ const Packages = () => {
           background-color: #f4f7f6;
         }
 
-        .packages-title {
+        .packages-header {
+          background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+          border-radius: 24px;
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+          max-width: 700px;
+          margin: 0 auto 2.5rem auto;
+          padding: 32px 18px 24px 18px;
           text-align: center;
-          color: #2c3e50;
-          font-size: 2.5rem;
-          margin-bottom: 40px;
-          font-weight: 700;
+          transition: box-shadow 0.3s;
+        }
+        .packages-header:hover {
+          box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.22);
+        }
+        .packages-title {
+          background: none;
+          box-shadow: none;
+          font-size: 2rem;
+          font-weight: 800;
+          color: #1a237e;
+          margin-bottom: 0.7rem;
+          border-radius: 0;
+          padding: 0;
+          max-width: 100%;
+          margin-left: 0;
+          margin-right: 0;
+          letter-spacing: 1px;
+          text-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+          transition: none;
+        }
+        .packages-subheading {
+          background: none;
+          box-shadow: none;
+          font-size: 1.1rem;
+          font-weight: 500;
+          color: #5c6470;
+          margin: 0 auto;
+          border-radius: 0;
+          max-width: 100%;
+          padding: 0;
+          letter-spacing: 0.2px;
         }
 
         .loading-spinner {

@@ -15,6 +15,7 @@ import FlightDetail from "./pages/FlightDetail"
 import HotelList from './pages/HotelList';
 import HotelPage from './pages/HotelPage';
 import HomePage from './pages/HomePage';
+import AIChatAssistant from './components/AIChatAssistant';
 
 const App = () => {
   // Create protected route wrapper component
@@ -43,6 +44,7 @@ const App = () => {
         <Route path="/flights/:id" element={<FlightDetail />} />
         <Route path="/car-rentals" element={<ProtectedRoute><Car /></ProtectedRoute>} />
         <Route path="/cruises" element={<ProtectedRoute><Cruises /></ProtectedRoute>} />
+        <Route path="/assistant" element={<ProtectedRoute><AIChatAssistant /></ProtectedRoute>} />
         
         {/* Auth routes - redirect to home if already logged in */}
         <Route path="/signup" element={<AuthRoute><Signup /></AuthRoute>} />

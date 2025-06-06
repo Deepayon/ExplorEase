@@ -22,7 +22,7 @@ const cors = require('cors');
 const app = express();  
 connectDB();  
 app.use(cors({
-    origin: 'http://localhost:3001',
+    origin: 'http://localhost:3000',
     credentials: true, // Allow cookies
   }));
   
@@ -45,6 +45,10 @@ app.use('/api/assistance', assistanceRoutes);
 app.use("/api/flights",flightRoutes)
 app.use("/api/bookings",bookingRoutes)
 app.use("/api/hotels",hotelRoutes)
+
+// AI Routes
+const aiRoutes = require('./routes/aiRoutes');
+app.use('/api/ai', aiRoutes);
 
 // Error handling middleware  
 app.use(errorHandler);  

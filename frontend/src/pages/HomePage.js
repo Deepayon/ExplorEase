@@ -20,12 +20,15 @@ const HomePage = () => {
 
   return (
     <div className="home-page">
-      <h1>Welcome to our Hotel Booking App</h1>
+      <div className="home-header">
+        <h1>Find Your Stay with Ease</h1>
+        <h2 className="home-subheading">Book hotels effortlessly</h2>
+      </div>
       <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
-      {hotels.map((hotel, index) => (
-  <HotelCard key={hotel._id} hotel={hotel} index={index} />
-))}
-    </div>
+        {hotels.map((hotel, index) => (
+          <HotelCard key={hotel._id} hotel={hotel} index={index} />
+        ))}
+      </div>
     </div>
   );
 };
