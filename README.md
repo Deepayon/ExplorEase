@@ -1,65 +1,56 @@
-[
-  {
-    "flightNumber": "AI202",
-    "airline": "Air India",
-    "origin": "Delhi",
-    "destination": "Mumbai",
-    "departureTime": "2025-06-08T09:00:00Z",
-    "arrivalTime": "2025-06-08T11:00:00Z",
-    "duration": "2h",
-    "price": 4500,
-    "stops": 0,
-    "availableSeats": 120
-  },
-  {
-    "flightNumber": "6E305",
-    "airline": "IndiGo",
-    "origin": "Bangalore",
-    "destination": "Kolkata",
-    "departureTime": "2025-06-09T13:30:00Z",
-    "arrivalTime": "2025-06-09T16:30:00Z",
-    "duration": "3h",
-    "price": 5300,
-    "stops": 0,
-    "availableSeats": 85
-  },
-  {
-    "flightNumber": "SG104",
-    "airline": "SpiceJet",
-    "origin": "Chennai",
-    "destination": "Hyderabad",
-    "departureTime": "2025-06-10T07:00:00Z",
-    "arrivalTime": "2025-06-10T08:20:00Z",
-    "duration": "1h 20m",
-    "price": 3100,
-    "stops": 0,
-    "availableSeats": 45
-  },
-  {
-    "flightNumber": "UK807",
-    "airline": "Vistara",
-    "origin": "Delhi",
-    "destination": "Pune",
-    "departureTime": "2025-06-11T18:00:00Z",
-    "arrivalTime": "2025-06-11T20:30:00Z",
-    "duration": "2h 30m",
-    "price": 4900,
-    "stops": 0,
-    "availableSeats": 95
-  },
-  {
-    "flightNumber": "G8105",
-    "airline": "GoAir",
-    "origin": "Ahmedabad",
-    "destination": "Goa",
-    "departureTime": "2025-06-12T14:45:00Z",
-    "arrivalTime": "2025-06-12T17:15:00Z",
-    "duration": "2h 30m",
-    "price": 4200,
-    "stops": 0,
-    "availableSeats": 60
-  }
-]
+📄 README.md — ExploreEase: AI-Powered Travel Assistant ✈️🤖
+markdown
+Copy
+Edit
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=25&pause=1000&center=true&vCenter=true&width=435&lines=Welcome+to+ExploreEase!;Your+AI+Travel+Planner+Companion" alt="Typing SVG" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/React-2025-blue.svg?style=for-the-badge&logo=react&logoColor=white" />
+  <img src="https://img.shields.io/badge/Express-Backend-success?style=for-the-badge&logo=express&logoColor=white" />
+  <img src="https://img.shields.io/badge/MongoDB-Atlas-informational?style=for-the-badge&logo=mongodb&logoColor=white" />
+  <img src="https://img.shields.io/badge/OpenAI-API-brightgreen?style=for-the-badge&logo=openai&logoColor=white" />
+</p>
+
+---
+
+## 🌍 About ExploreEase
+
+**ExploreEase** is a modern AI-driven travel assistant built with the MERN stack. Whether you're looking for the best travel destinations, booking flights or hotels, or just exploring budget-friendly tips, our smart assistant **EaseBot** is here to guide you — 24/7, 365 days a year.
+
+🧠 **AI Features** powered by OpenAI  
+📅 Personalized itineraries  
+✈️ Flight and hotel booking system  
+🛠 Fully modular, API-driven backend  
+🎨 Beautiful responsive UI using Material UI
+
+---
+
+## 🔧 Tech Stack
+
+| Frontend | Backend | Database | AI |
+|----------|---------|----------|----|
+| React.js (Vite) | Node.js, Express | MongoDB Atlas | OpenAI (GPT-4/3.5) |
+
+> Styled with MUI (Material UI) & enhanced animations using CSS keyframes
+
+---
+
+## 🚀 Features
+
+- ✅ **User Authentication (Login/Signup/Session)**
+- 🤖 **AI Assistant (`EaseBot`) Chat Integration**
+- 🛫 **Flight & Hotel Booking APIs**
+- 🍜 **Food & Lodging Suggestions**
+- 🗺 **Intelligent Itinerary Builder**
+- 📝 **User Feedback & Suggestions Handling**
+- 📡 **Secure API integration with CORS & session management**
+
+---
+
+## 📦 Folder Structure (Backend)
+
 /server
 ├── controllers/
 ├── routes/
@@ -68,6 +59,10 @@
 ├── config/
 ├── app.js
 └── server.js
+
+bash
+Copy
+Edit
 
 ## 💻 Local Development Setup
 
@@ -85,3 +80,24 @@ npm run dev
 cd client
 npm install
 npm run dev
+Make sure to configure .env in /server with your Mongo URI, session secret, and OpenAI API key.
+
+🔑 .env Example
+env
+Copy
+Edit
+MONGO_URI=your_mongodb_uri
+SESSION_SECRET=some_super_secret
+OPENAI_API_KEY=your_openai_key
+PORT=5000
+🤖 AI Endpoint Example
+http
+Copy
+Edit
+POST /api/ai/chat
+Content-Type: application/json
+
+{
+  "message": "Suggest me budget travel destinations in India"
+}
+✅ Returns smart responses using GPT with travel-focused prompts.
