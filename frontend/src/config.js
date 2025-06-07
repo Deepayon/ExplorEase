@@ -1,6 +1,6 @@
+// config.js
 const config = {
-    backendURL: 'http://localhost:5000/api',
-  };
-  
-  export default config;
-  
+  backendURL: 'http://localhost:5000',
+};
+
+export default config;

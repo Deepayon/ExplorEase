@@ -19,7 +19,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        `${config.backendURL}/auth/login`,
+        `${config.backendURL}/api/auth/login`,
         formData
       );
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import api from '../utils/api';
+import axios from 'axios';
 import BookingForm from './BookingForm';
 import './HotelDetails.css';
 
@@ -11,7 +11,7 @@ const HotelDetails = () => {
   useEffect(() => {
     const fetchHotelDetails = async () => {
       try {
-        const response = await api.get(`/hotels/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/hotels/${id}`);
         setHotel(response.data);
       } catch (error) {
         console.error('Error fetching hotel details:', error);

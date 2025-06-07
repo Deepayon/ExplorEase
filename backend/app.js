@@ -22,9 +22,14 @@ const cors = require('cors');
 const app = express();  
 connectDB();  
 app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true, // Allow cookies
-  }));
+    origin: [
+      'http://localhost:3000', //dev
+      // 'https://xplorez.netlify.app' // actual frontend URL
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    credentials: true
+}));
+app.options("*", cors());
   
   
 // Middleware  
@@ -52,6 +57,10 @@ app.use('/api/ai', aiRoutes);
 
 // Error handling middleware  
 app.use(errorHandler);  
+
+app.get('/', (req, res) => {
+  res.send('API is running!');
+});
 
 module.exports = app;
 

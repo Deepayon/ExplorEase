@@ -148,7 +148,15 @@
     padding: 0.75rem;
     animation: slideDown 0.3s ease;
     border: 1px solid rgba(0, 0, 0, 0.05);
+    display: none;
+    pointer-events: auto;
   }
+  
+  /* Keep dropdown open when hovering user-info or dropdown itself */
+.user-profile-section:hover .profile-dropdown,
+.user-profile-section:focus-within .profile-dropdown {
+  display: block;
+}
   
   .dropdown-divider {
     margin: 0.5rem 0;

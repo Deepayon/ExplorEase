@@ -26,7 +26,7 @@ const Cruises = () => {
     };
 
     fetchCruises();
-  }, []);
+  }, [sampleData]); // 
 
   return (
     <div className="cruises-container">

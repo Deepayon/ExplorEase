@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Hotels from './pages/Hotels';
+// import Hotels from './pages/Hotels';
 import Transports from './pages/Transports';
 import Packages from './pages/Packages';
 import Flights from './pages/Flights';
@@ -12,10 +12,13 @@ import Car from './pages/CarRentals';
 import Cruises from './pages/Cruises';
 import Contact from './pages/Contact';
 import FlightDetail from "./pages/FlightDetail"
-import HotelList from './pages/HotelList';
+// import HotelList from './pages/HotelList';
 import HotelPage from './pages/HotelPage';
 import HomePage from './pages/HomePage';
 import AIChatAssistant from './components/AIChatAssistant';
+import ProfilePage from './pages/ProfilePage';
+import BookingsPage from './pages/BookingsPage';
+import SettingsPage from './pages/SettingsPage';
 
 const App = () => {
   // Create protected route wrapper component
@@ -45,6 +48,9 @@ const App = () => {
         <Route path="/car-rentals" element={<ProtectedRoute><Car /></ProtectedRoute>} />
         <Route path="/cruises" element={<ProtectedRoute><Cruises /></ProtectedRoute>} />
         <Route path="/assistant" element={<ProtectedRoute><AIChatAssistant /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+        <Route path="/bookings" element={<ProtectedRoute><BookingsPage /></ProtectedRoute>} />
+        <Route path="/settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
         
         {/* Auth routes - redirect to home if already logged in */}
         <Route path="/signup" element={<AuthRoute><Signup /></AuthRoute>} />

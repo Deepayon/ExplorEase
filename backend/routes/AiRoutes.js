@@ -28,7 +28,7 @@ router.post('/chat', async (req, res) => {
           'X-Title': 'ExplorEase AI Chatbot'
         }
       }
-    );
+    )
 
     res.json({ reply: response.data.choices[0].message.content });
   } catch (error) {

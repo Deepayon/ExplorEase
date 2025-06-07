@@ -9,7 +9,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await api.get('/hotels');
+        const response = await api.get('/api/hotels');
         setHotels(response.data);
       } catch (error) {
         console.error('Error fetching hotels:', error);

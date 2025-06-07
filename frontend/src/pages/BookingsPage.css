@@ -1,0 +1,125 @@
+.bookings-page {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(99,102,241,0.06);
+  animation: fadeIn 0.7s;
+}
+.bookings-title {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 2rem;
+  color: #22223b;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+.booking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.booking-card {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  background: rgba(255,255,255,0.95);
+  border-radius: 14px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 1px 6px rgba(99,102,241,0.06);
+  transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+  cursor: pointer;
+  animation: popIn 0.5s;
+  position: relative;
+  border: 1px solid #e0e7ff;
+}
+.booking-card:hover {
+  box-shadow: 0 6px 24px rgba(99,102,241,0.10);
+  background: #f3f4f6;
+  transform: translateY(-2px) scale(1.01);
+}
+.booking-icon {
+  color: #6366f1;
+  min-width: 32px;
+}
+.booking-details {
+  flex: 1;
+}
+.booking-type {
+  font-weight: bold;
+  color: #6366f1;
+  font-size: 1.1rem;
+}
+.booking-detail {
+  color: #22223b;
+  font-size: 1.05rem;
+}
+.booking-date {
+  color: #64748b;
+  font-size: 0.98rem;
+}
+.booking-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+.booking-status.confirmed {
+  color: #22c55e;
+}
+.booking-status.pending {
+  color: #f59e42;
+}
+.booking-status.cancelled {
+  color: #f43f5e;
+}
+.booking-action {
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  margin-left: 1rem;
+  box-shadow: 0 1px 4px rgba(99,102,241,0.08);
+}
+.booking-action:hover:enabled {
+  background: #4338ca;
+  transform: scale(1.06);
+}
+.booking-action:disabled {
+  background: #e5e7eb;
+  color: #a1a1aa;
+  cursor: not-allowed;
+}
+@media (max-width: 800px) {
+  .bookings-page {
+    max-width: 98vw;
+    padding: 1rem;
+  }
+  .booking-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+    padding: 1rem;
+  }
+  .booking-action {
+    margin-left: 0;
+    margin-top: 0.7rem;
+    width: 100%;
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0;}
+  to { opacity: 1;}
+}
+@keyframes popIn {
+  from { transform: scale(0.95);}
+  to { transform: scale(1);}
+}

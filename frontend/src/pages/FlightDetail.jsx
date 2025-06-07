@@ -14,7 +14,7 @@ const FlightDetail = () => {
   useEffect(() => {
     const fetchFlightDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/flights/${id}`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/flights/${id}`, {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -62,7 +62,6 @@ const FlightDetail = () => {
       const response = await axios.post('http://localhost:5000/api/bookings', 
         {
           flightId: flight._id,
-          passengers
         },
         {
           headers: {

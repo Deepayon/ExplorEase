@@ -95,7 +95,7 @@ const Flights = () => {
       setError(null);
 
       try {
-        const response = await axios.get("http://localhost:5000/api/flights");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/flights`);
         if (response.data && Array.isArray(response.data)) {
           setFlights(response.data);
         } else {

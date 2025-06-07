@@ -90,7 +90,7 @@ const AIChatAssistant = () => {
             className="ai-chat-send-btn"
             aria-label="Send"
           >
-            {loading ? <CircularProgress size={24} /> : <SendIcon style={{ color: "#1976d2" }} />}
+            {loading ? <CircularProgress size={24} /> : <SendIcon />}
           </IconButton>
         </Box>
       </Paper>
@@ -209,6 +209,19 @@ const AIChatAssistant = () => {
           border-radius: 16px;
           border: 2px solid #1976d2;
           transition: background 0.3s, transform 0.2s, border-color 0.3s;
+        }
+        .ai-chat-send-btn {
+          position: relative;
+          overflow: hidden;
+          border-radius: 16px;
+          transition: background 0.3s, transform 0.2s;
+        }
+        .ai-chat-send-btn .MuiSvgIcon-root {
+          color: #1976d2;
+          transition: color 0.2s;
+        }
+        .ai-chat-send-btn:hover .MuiSvgIcon-root {
+          color: #fff;
         }
         .ai-chat-send-btn:hover {
           background: #1976d2 !important;

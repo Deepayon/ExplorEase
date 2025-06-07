@@ -18,7 +18,7 @@ const Signup = () => {
     setFeedback({ message: '', error: '' });
 
     try {
-      const response = await axios.post(`${config.backendURL}/auth/signup`, formData);
+      const response = await axios.post(`${config.backendURL}/api/auth/signup`, formData);
       
       if (response?.data) {
         setFeedback({
