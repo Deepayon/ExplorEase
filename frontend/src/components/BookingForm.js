@@ -13,7 +13,7 @@ const BookingForm = ({ hotelId }) => {
 
     try {
       await api.post(
-        `/hotels/${hotelId}/book`,
+        `/api/hotels/${hotelId}/book`,
         {
           hotelId,
           roomNumber,

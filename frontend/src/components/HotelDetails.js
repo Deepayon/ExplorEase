@@ -9,9 +9,17 @@ const HotelDetails = () => {
   const [hotel, setHotel] = useState(null);
 
   useEffect(() => {
-    const fetchHotelDetails = async () => {
+/*************  ✨ Windsurf Command ⭐  *************/
+  /**
+   * Fetches the hotel details from the backend API by ID.
+   *
+   * @async
+   * @function
+   * @returns {Promise<void>}
+   */
+/*******  4cc2c816-868b-48da-95e6-c5890d391b78  *******/    const fetchHotelDetails = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/hotels/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/hotels/${id}`);
         setHotel(response.data);
       } catch (error) {
         console.error('Error fetching hotel details:', error);
