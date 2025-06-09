@@ -18,9 +18,9 @@ export default function ProfilePage() {
         <div className="profile-avatar">
           <User size={56} />
         </div>
-        <h2 className="profile-name">Bishal Das</h2>
+        <h2 className="profile-name">Deepayan Das</h2>
         <div className="profile-info">
-          <span><Mail size={18} /> bishal@example.com</span>
+          <span><Mail size={18} /> deepayandas@example.com</span>
           <span><Phone size={18} /> +91 9876543210</span>
           <span><Calendar size={18} /> Member since: Jan 2023</span>
           <span><MapPin size={18} /> Kolkata, India</span>
