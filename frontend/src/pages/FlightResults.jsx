@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import FlightCard from './FlightCard';
 import './styles/FlightResults.css';
 
-const FlightResults = ({ flights, searchAttempted, onFlightSelect }) => {
+const FlightResults = ({ flights, searchAttempted }) => {
+  const navigate = useNavigate();
+
+  const handleBookNow = (flight) => {
+    navigate('/payment', { state: { bookingType: 'flight', bookingDetails: flight } });
+  };
+
   if (!searchAttempted || !flights) return null;
 
   if (flights.length === 0) {
@@ -23,7 +30,7 @@ const FlightResults = ({ flights, searchAttempted, onFlightSelect }) => {
           <FlightCard
             key={flight._id}
             flight={flight}
-            onClick={() => onFlightSelect(flight._id)}
+            onClick={() => handleBookNow(flight)}
           />
         ))}
       </div>

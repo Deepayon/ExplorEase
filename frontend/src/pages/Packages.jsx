@@ -1,38 +1,40 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+// import PackageCard from './PackageCard';
+
+const samplePackages = [
+  {
+    id: 1, 
+    name: 'Tropical Paradise Retreat', 
+    description: 'Luxury beachfront experience in Bali',
+    price: 1299,
+    duration: '7 Days',
+    location: 'Bali, Indonesia',
+    image: 'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=600&h=400&fit=crop'
+  },
+  {
+    id: 2, 
+    name: 'Alpine Mountain Expedition', 
+    description: 'Exclusive hiking and wellness journey',
+    price: 1799,
+    duration: '10 Days', 
+    location: 'Swiss Alps, Switzerland',
+    image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&h=400&fit=crop'
+  },
+  {
+    id: 3, 
+    name: 'Urban Culture Immersion', 
+    description: 'Premium city tour with culinary experiences',
+    price: 999,
+    duration: '5 Days',
+    location: 'Tokyo, Japan',
+    image: 'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=600&h=400&fit=crop'
+  }
+];
 
 const Packages = () => {
   const [packages, setPackages] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const samplePackages = [
-    {
-      id: 1, 
-      name: 'Tropical Paradise Retreat', 
-      description: 'Luxury beachfront experience in Bali',
-      price: 1299,
-      duration: '7 Days',
-      location: 'Bali, Indonesia',
-      image: 'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=600&h=400&fit=crop'
-    },
-    {
-      id: 2, 
-      name: 'Alpine Mountain Expedition', 
-      description: 'Exclusive hiking and wellness journey',
-      price: 1799,
-      duration: '10 Days', 
-      location: 'Swiss Alps, Switzerland',
-      image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&h=400&fit=crop'
-    },
-    {
-      id: 3, 
-      name: 'Urban Culture Immersion', 
-      description: 'Premium city tour with culinary experiences',
-      price: 999,
-      duration: '5 Days',
-      location: 'Tokyo, Japan',
-      image: 'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=600&h=400&fit=crop'
-    }
-  ];
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -41,7 +43,13 @@ const Packages = () => {
     }, 1500);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, []); // No warning now
+
+  const navigate = useNavigate();
+
+  const handleBookNow = (pkg) => {
+    navigate('/payment', { state: { bookingType: 'package', bookingDetails: pkg } });
+  };
 
   return (
     <div className="packages-container">
@@ -71,7 +79,7 @@ const Packages = () => {
                 </div>
                 <div className="package-footer">
                   <span className="package-price">${pkg.price}</span>
-                  <button className="book-button">Book Now →</button>
+                  <button className="book-button" onClick={() => handleBookNow(pkg)}>Book Now →</button>
                 </div>
               </div>
             </div>

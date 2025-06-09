@@ -6,22 +6,27 @@ import "./HotelDetails.css"
 const HotelDetails = () => {
   const { id } = useParams();
   const [hotel, setHotel] = useState(null);
+  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     const fetchHotelDetails = async () => {
       try {
-        const response = await axios.get(`/api/hotel/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/hotels/${id}`);
         setHotel(response.data);
+        
+        setNotFound(false);
       } catch (error) {
+        if (error.response && error.response.status === 404) {
+          setNotFound(true);
+        }
         console.error('Error fetching hotel details:', error);
       }
     };
     fetchHotelDetails();
   }, [id]);
 
-  if (!hotel) {
-    return <div>Loading...</div>;
-  }
+  if (notFound) return <div>Hotel not found.</div>;
+  if (!hotel) return <div>Loading...</div>;
 
   return (
     <div className="hotel-details-container">

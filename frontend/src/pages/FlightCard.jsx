@@ -3,7 +3,7 @@ import './styles/FlightCard.css';
 
 const FlightCard = ({ flight, onClick }) => {
   return (
-    <div className="flight-card" onClick={onClick}>
+    <div className="flight-card">
       <div className="flight-card-header">
         <div className="airline-logo">
           {flight.airline.charAt(0)}
@@ -37,6 +37,9 @@ const FlightCard = ({ flight, onClick }) => {
           {flight.availableSeats} seats left
         </div>
       </div>
+      <button className="book-now-btn" onClick={onClick}>
+        Book Now
+      </button>
     </div>
   );
 };
