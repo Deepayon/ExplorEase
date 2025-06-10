@@ -13,7 +13,7 @@ import Cruises from './pages/Cruises';
 import Contact from './pages/Contact';
 import FlightDetail from "./pages/FlightDetail"
 // import HotelList from './pages/HotelList';
-import HotelPage from './pages/HotelPage';
+import HotelDetails from './pages/HotelDetails';
 import HomePage from './pages/HomePage';
 import AIChatAssistant from './components/AIChatAssistant';
 import ProfilePage from './pages/ProfilePage';
@@ -42,7 +42,7 @@ const App = () => {
         {/* Protected routes */}
         <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="/hotels" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
-        <Route path="/hotels/:id" element={<ProtectedRoute><HotelPage /></ProtectedRoute>} />
+        <Route path="/hotels/:id" element={<HotelDetails />} />
         <Route path="/transports" element={<ProtectedRoute><Transports /></ProtectedRoute>} />
         <Route path="/packages" element={<ProtectedRoute><Packages /></ProtectedRoute>} />
         <Route path="/flights" element={<ProtectedRoute><Flights /></ProtectedRoute>} />

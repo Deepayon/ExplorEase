@@ -53,7 +53,7 @@ const PaymentPage = () => {
           <span className="summary-detail">
             {bookingType === 'flight' && (
               <>
-                {bookingDetails.from} → {bookingDetails.to} <br />
+                {bookingDetails.origin} → {bookingDetails.destination} <br />
                 {bookingDetails.airline} ({bookingDetails.flightNumber})
               </>
             )}

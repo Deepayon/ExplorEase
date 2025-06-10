@@ -60,7 +60,7 @@ const BookingsList = () => {
               
               <div className="booking-card__details">
                 <div className="booking-card__route">
-                  <p>{booking.flight.from} → {booking.flight.to}</p>
+                  <p>{booking.flight.origin} → {booking.flight.destination}</p>
                   <p>{new Date(booking.flight.departureTime).toLocaleDateString()}</p>
                 </div>
                 

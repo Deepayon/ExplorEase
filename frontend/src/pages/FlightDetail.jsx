@@ -124,7 +124,7 @@ const FlightDetail = () => {
       }}>
         <div style={{textAlign: 'left'}}>
           <h3>Departure</h3>
-          <p>{flight.from}</p>
+          <p>{flight.origin}</p>
           <span>{new Date(flight.departureTime).toLocaleString()}</span>
         </div>
         <div style={{
@@ -146,7 +146,7 @@ const FlightDetail = () => {
         </div>
         <div style={{textAlign: 'right'}}>
           <h3>Arrival</h3>
-          <p>{flight.to}</p>
+          <p>{flight.destination}</p>
           <span>{new Date(flight.arrivalTime).toLocaleString()}</span>
         </div>
       </div>
@@ -166,6 +166,8 @@ const FlightDetail = () => {
           <p><strong>Aircraft:</strong> {flight.aircraft}</p>
           <p><strong>Duration:</strong> {flight.duration}</p>
           <p><strong>Available Seats:</strong> {flight.availableSeats}</p>
+          <p>Carry-on: {flight?.baggage?.carry_on || "Not specified"}</p>
+          <p>Checked: {flight?.baggage?.checked || "Not specified"}</p>
         </div>
         <div style={{
           border: '1px solid #eee',
@@ -177,7 +179,9 @@ const FlightDetail = () => {
             fontSize: '24px',
             color: '#007bff',
             fontWeight: 'bold'
-          }}>${flight.price.toFixed(2)}</p>
+          }}>
+            ₹{flight.price.toLocaleString("en-IN")}
+          </p>
           <p>Includes all taxes and fees</p>
         </div>
       </div>

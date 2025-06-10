@@ -242,3 +242,12 @@ body {
     text-align: center;
     margin: 20px 0;
   }
+  
+  /* Flight Date Style */
+.flight-date {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: black;
+  margin-right: 12px;
+  letter-spacing: 1px;
+}

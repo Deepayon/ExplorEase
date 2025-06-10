@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import './Hotels.css'; // Import the CSS file
 
 function Hotels() {
@@ -9,18 +10,49 @@ function Hotels() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [roomPreference, setRoomPreference] = useState('Standard Room');
+  const [roomNumber, setRoomNumber] = useState('');
+  const navigate = useNavigate();
 
   const handleBooking = () => {
-    alert(`
-      Booking Confirmed!
-      Name: ${name}
-      Email: ${email}
-      Phone: ${phone}
-      Check-In: ${checkIn}
-      Check-Out: ${checkOut}
-      Guests: ${guests}
-      Room Preference: ${roomPreference}
-    `);
+    // Example base prices per night for each room type
+    const roomPrices = {
+      "Standard Room": 2000,
+      "Deluxe Room": 3500,
+      "Suite": 5000,
+      "Family Room": 4000,
+    };
+
+    // Calculate number of nights
+    const checkInDate = new Date(checkIn);
+    const checkOutDate = new Date(checkOut);
+    const diffTime = checkOutDate - checkInDate;
+    const nights = Math.max(1, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
+
+    // Calculate price: price per night * nights
+    const basePrice = roomPrices[roomPreference] || 2000;
+    const totalPrice = basePrice * nights;
+
+    // Prepare hotel booking details
+    const bookingDetails = {
+      name,
+      email,
+      phone,
+      guests,
+      checkIn,
+      checkOut,
+      roomPreference,
+      roomNumber, // include the selected room number
+      price: totalPrice,
+      nights,
+      // add more fields if needed
+    };
+
+    navigate('/payment', {
+      state: {
+        bookingType: 'hotel',
+        bookingDetails
+      }
+    });
   };
 
   const hotelImages = [
@@ -107,6 +139,15 @@ function Hotels() {
               <option value="Suite">Suite</option>
               <option value="Family Room">Family Room</option>
             </select>
+          </div>
+          <div className="form-group">
+            <label>Room Number</label>
+            <input
+              type="text"
+              value={roomNumber}
+              onChange={(e) => setRoomNumber(e.target.value)}
+              placeholder="Enter room number"
+            />
           </div>
           <button type="button" onClick={handleBooking} className="btn">
             Book Now

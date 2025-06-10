@@ -13,24 +13,22 @@ const FlightCard = ({ flight, onClick }) => {
           <span className="flight-number">{flight.flightNumber}</span>
         </div>
         <div className="flight-price">
-          ${flight.price.toFixed(2)}
+          <span className="price-label">Price:</span>
+          <span className="price-value">₹{flight.price.toLocaleString("en-IN")}</span>
         </div>
       </div>
       
       <div className="flight-route">
         <div className="route-info">
-          <span className="departure-city">{flight.from}</span>
-          <div className="route-connector">
-            <div className="route-line"></div>
-            <div className="route-dot"></div>
-          </div>
-          <span className="arrival-city">{flight.to}</span>
+          <span className="departure-city">{flight.origin}</span>
+          <span className="route-arrow">→</span>
+          <span className="arrival-city">{flight.destination}</span>
         </div>
       </div>
       
       <div className="flight-meta">
         <div className="flight-time">
-          <span>{new Date(flight.departureTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+          <span>{new Date(flight.departureTime).toLocaleDateString("en-IN")}</span>
           <span className="flight-duration">{flight.duration}</span>
         </div>
         <div className="seats-availability">

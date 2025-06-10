@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import BookingForm from './BookingForm';
 import './HotelDetails.css';
 
 const HotelDetails = () => {
@@ -9,15 +8,7 @@ const HotelDetails = () => {
   const [hotel, setHotel] = useState(null);
 
   useEffect(() => {
-/*************  ✨ Windsurf Command ⭐  *************/
-  /**
-   * Fetches the hotel details from the backend API by ID.
-   *
-   * @async
-   * @function
-   * @returns {Promise<void>}
-   */
-/*******  4cc2c816-868b-48da-95e6-c5890d391b78  *******/    const fetchHotelDetails = async () => {
+    const fetchHotelDetails = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/hotels/${id}`);
         setHotel(response.data);
@@ -28,53 +19,35 @@ const HotelDetails = () => {
     fetchHotelDetails();
   }, [id]);
 
-  if (!hotel) {
-    return <div>Loading...</div>;
-  }
+  if (!hotel) return <div className="hotel-details-loading">Loading...</div>;
+
+  const USD_TO_INR = 83;
 
   return (
-    <div className="hotel-details">
-      <div className="hotel-header">
-        <h2>{hotel.name}</h2>
-        <p>{hotel.description}</p>
-        <p>Price: ${hotel.price} per night</p>
-        <p>Location: {hotel.location}</p>
+    <div className="hotel-details-card">
+      <h1 className="hotel-details-title">{hotel.name}</h1>
+      <div className="hotel-details-location" tabIndex={0} title={hotel.location}>
+        📍 {hotel.location}
       </div>
-      <div className="hotel-amenities">
+      <p className="hotel-details-description">{hotel.description}</p>
+      <div className="hotel-details-price-block">
+        <span className="hotel-details-price">
+          ₹{(hotel.price * USD_TO_INR).toLocaleString()}
+          <span className="per-night">/ night</span>
+        </span>
+        <span className="discount-badge">🎉 15% OFF</span>
+      </div>
+      <div className="hotel-details-amenities">
         <h3>Amenities</h3>
         <ul>
-          {hotel.amenities.map((amenity, index) => (
-            <li key={index}>{amenity}</li>
+          {hotel.amenities.map((amenity, idx) => (
+            <li key={idx}>{amenity}</li>
           ))}
         </ul>
       </div>
-      <div className="hotel-rooms">
-        <h3>Rooms</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Room Number</th>
-              <th>Room Type</th>
-              <th>Capacity</th>
-              <th>Available</th>
-            </tr>
-          </thead>
-          <tbody>
-            {hotel.rooms.map((room, index) => (
-              <tr key={index}>
-                <td>{room.roomNumber}</td>
-                <td>{room.roomType}</td>
-                <td>{room.capacity}</td>
-                <td>{room.available ? 'Yes' : 'No'}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className="hotel-booking">
-        <h3>Book Your Stay</h3>
-        <BookingForm hotelId={hotel._id} />
-      </div>
+      <button className="hotel-details-book-btn">
+        Book Now
+      </button>
     </div>
   );
 };

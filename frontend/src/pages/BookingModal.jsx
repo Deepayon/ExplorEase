@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 import './BookingModal.css'; // Create this CSS file
 
 const BookingModal = ({ flight, onClose, onBookingComplete }) => {
   const [passengers, setPassengers] = useState([{ name: '', age: '' }]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const addPassenger = () => {
     if (passengers.length < flight.availableSeats) {
@@ -19,42 +21,21 @@ const BookingModal = ({ flight, onClose, onBookingComplete }) => {
     setPassengers(newPassengers);
   };
 
-  const handleBooking = async () => {
-    setError(null);
-    setIsLoading(true);
-
-    const isValidPassengers = passengers.every(passenger =>
-      passenger.name.trim() && passenger.age && parseInt(passenger.age) > 0
-    );
-
-    if (!isValidPassengers) {
-      setError('Please fill in valid passenger details');
-      setIsLoading(false);
-      return;
-    }
-
-    try {
-      const authToken = localStorage.getItem('authToken');
-      
-      const response = await axios.post('http://localhost:5000/api/bookings', 
-        {
-          flightId: flight._id,
-          passengers
-        },
-        {
-          headers: {
-            'Authorization': `Bearer ${authToken}`
-          }
+  const handleBooking = () => {
+    // Prepare the booking details for payment page
+    navigate('/payment', {
+      state: {
+        bookingType: 'flight',
+        bookingDetails: {
+          airline: flight.airline,
+          flightNumber: flight.flightNumber,
+          origin: flight.origin,
+          destination: flight.destination,
+          price: flight.price,
+          // add more fields if needed
         }
-      );
-
-      onBookingComplete(response.data);
-      onClose();
-    } catch (err) {
-      setError(err.response?.data?.message || 'Booking failed');
-    } finally {
-      setIsLoading(false);
-    }
+      }
+    });
   };
 
   return (
@@ -67,6 +48,7 @@ const BookingModal = ({ flight, onClose, onBookingComplete }) => {
         
         <div className="booking-modal-content">
           <p>Available Seats: {flight.availableSeats}</p>
+          <p>Carry-on Baggage: {flight?.baggage?.carry_on || "Not specified"}</p>
           
           {passengers.map((passenger, index) => (
             <div key={index} className="passenger-input-row">
@@ -74,6 +56,7 @@ const BookingModal = ({ flight, onClose, onBookingComplete }) => {
                 placeholder="Passenger Name"
                 value={passenger.name}
                 onChange={(e) => updatePassenger(index, 'name', e.target.value)}
+                
               />
               <input
                 type="number"
@@ -99,6 +82,12 @@ const BookingModal = ({ flight, onClose, onBookingComplete }) => {
             disabled={isLoading || passengers.length === 0}
           >
             {isLoading ? 'Booking...' : 'Book Now'}
+          </button>
+          <button 
+            onClick={onClose}
+            className="back-button"
+          >
+            Back
           </button>
         </div>
       </div>

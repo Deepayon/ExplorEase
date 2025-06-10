@@ -21,10 +21,10 @@ const FlightDetailModal = ({ flight, onClose }) => {
           <div className="flight-detail-section">
             <h3>Flight Route</h3>
             <p>
-              <strong>From:</strong> {flight.from}
+              <strong>From:</strong> {flight.origin}
             </p>
             <p>
-              <strong>To:</strong> {flight.to}
+              <strong>To:</strong> {flight.destination}
             </p>
           </div>
           <div className="flight-detail-section">
@@ -44,7 +44,7 @@ const FlightDetailModal = ({ flight, onClose }) => {
           <div className="flight-detail-section">
             <h3>Pricing & Seats</h3>
             <p>
-              <strong>Price:</strong> ${flight.price.toFixed(2)}
+              <strong>Price:</strong> ₹{flight.price.toLocaleString("en-IN")}
             </p>
             <p>
               <strong>Available Seats:</strong> {flight.availableSeats}
@@ -59,8 +59,8 @@ const FlightDetailModal = ({ flight, onClose }) => {
               <strong>Baggage:</strong>
             </p>
             <ul>
-              <li>Carry-on: {flight.baggage.carry_on}</li>
-              <li>Checked: {flight.baggage.checked}</li>
+              <li>Carry-on: {flight?.baggage?.carry_on || "Not specified"}</li>
+              <li>Checked: {flight?.baggage?.checked || "Not specified"}</li>
             </ul>
           </div>
           <div className="flight-detail-section full-width">
@@ -152,16 +152,16 @@ const Flights = () => {
                 <span className="flight-number">{flight.flightNumber}</span>
               </div>
               <div className="flight-card-route">
-                <span>{flight.from}</span>
+                <span>{flight.origin}</span>
                 <span className="route-arrow">→</span>
-                <span>{flight.to}</span>
+                <span>{flight.destination}</span>
               </div>
               <div className="flight-card-price">
-                ${flight.price.toFixed(2)}
+                ₹{flight.price.toLocaleString("en-IN")}
               </div>
               <div className="flight-card-details">
-                <span>
-                  {new Date(flight.departureTime).toLocaleDateString()}
+                <span className="flight-date">
+                  {new Date(flight.departureTime).toLocaleDateString("en-GB")}
                 </span>
                 <span className="seats-indicator">
                   {flight.availableSeats} seats left
