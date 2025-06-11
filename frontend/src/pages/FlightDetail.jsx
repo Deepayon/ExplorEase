@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const FlightDetail = () => {
   const { id } = useParams();
-  const [flight, setFlight] = useState(null);
+  const [flight] = useState(null); // or remove entirely if not used
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [passengers, setPassengers] = useState([{ name: '', age: '' }]);
@@ -14,13 +14,12 @@ const FlightDetail = () => {
   useEffect(() => {
     const fetchFlightDetails = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/flights/${id}`, {
+        await axios.get(`${process.env.REACT_APP_API_URL}/api/flights/${id}`, {
           headers: {
             'Content-Type': 'application/json'
           }
         });
         
-        setFlight(response.data);
         setLoading(false);
       } catch (err) {
         console.error('Error fetching flight details:', err);
@@ -58,8 +57,7 @@ const FlightDetail = () => {
 
     try {
       const authToken = localStorage.getItem('authToken');
-      
-      const response = await axios.post('http://localhost:5000/api/bookings', 
+      await axios.post('http://localhost:5000/api/bookings', 
         {
           flightId: flight._id,
         },

@@ -24,8 +24,7 @@ connectDB();
 app.use(cors({
     origin: [
       'http://localhost:3000', //dev
-      'http://localhost:3001', //dev
-      // 'https://xplorez.netlify.app' // actual frontend URL
+      'https://xplorease.netlify.app' // actual frontend URL
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     credentials: true

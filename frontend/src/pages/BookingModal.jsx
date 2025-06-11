@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from "react-router-dom";
 import './BookingModal.css'; // Create this CSS file
 
 const BookingModal = ({ flight, onClose, onBookingComplete }) => {
   const [passengers, setPassengers] = useState([{ name: '', age: '' }]);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
-
+  
   const addPassenger = () => {
     if (passengers.length < flight.availableSeats) {
       setPassengers([...passengers, { name: '', age: '' }]);
@@ -54,7 +49,6 @@ const BookingModal = ({ flight, onClose, onBookingComplete }) => {
             </div>
           ))}
           
-          {error && <p className="error-message">{error}</p>}
         </div>
         
         <div className="booking-modal-actions">
@@ -66,9 +60,9 @@ const BookingModal = ({ flight, onClose, onBookingComplete }) => {
           </button>
           <button 
             onClick={handleBooking}
-            disabled={isLoading || passengers.length === 0}
+            disabled={passengers.length === 0}
           >
-            {isLoading ? 'Booking...' : 'Book Now'}
+            Book Now
           </button>
           <button 
             onClick={onClose}

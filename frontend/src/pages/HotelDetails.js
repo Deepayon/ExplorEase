@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import "./HotelDetails.css";
 
 const HotelDetails = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const [hotel, setHotel] = useState(null);
   const [notFound, setNotFound] = useState(false);
   const [roomCount, setRoomCount] = useState(1);

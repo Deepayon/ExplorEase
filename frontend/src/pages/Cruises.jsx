@@ -5,13 +5,13 @@ const Cruises = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const sampleData = [
-    { id: 1, name: 'Caribbean Cruise', duration: '7 days', price: '$700' },
-    { id: 2, name: 'Mediterranean Cruise', duration: '10 days', price: '$900' },
-    { id: 3, name: 'Alaskan Cruise', duration: '14 days', price: '$1300' }
-  ];
-
   useEffect(() => {
+    const sampleData = [
+      { id: 1, name: 'Caribbean Cruise', duration: '7 days', price: '$700' },
+      { id: 2, name: 'Mediterranean Cruise', duration: '10 days', price: '$900' },
+      { id: 3, name: 'Alaskan Cruise', duration: '14 days', price: '$1300' }
+    ];
+
     const fetchCruises = async () => {
       try {
         // Simulating a real API request
@@ -26,7 +26,7 @@ const Cruises = () => {
     };
 
     fetchCruises();
-  }, [sampleData]); // 
+  }, []);
 
   return (
     <div className="cruises-container">

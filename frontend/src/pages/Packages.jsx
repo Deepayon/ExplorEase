@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 // import PackageCard from './PackageCard';
 
 const samplePackages = [
@@ -44,8 +43,6 @@ const Packages = () => {
 
     return () => clearTimeout(timer);
   }, []); // No warning now
-
-  const navigate = useNavigate();
 
   const handleBookNow = (pkg) => {
     window.location.href = "https://buy.stripe.com/test_14A00l1vI2a5bSA9dMaAw00";
