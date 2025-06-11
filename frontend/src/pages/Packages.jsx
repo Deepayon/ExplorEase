@@ -48,7 +48,7 @@ const Packages = () => {
   const navigate = useNavigate();
 
   const handleBookNow = (pkg) => {
-    navigate('/payment', { state: { bookingType: 'package', bookingDetails: pkg } });
+    window.location.href = "https://buy.stripe.com/test_14A00l1vI2a5bSA9dMaAw00";
   };
 
   return (

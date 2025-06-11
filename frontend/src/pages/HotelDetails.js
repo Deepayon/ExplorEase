@@ -8,6 +8,10 @@ const HotelDetails = () => {
   const navigate = useNavigate();
   const [hotel, setHotel] = useState(null);
   const [notFound, setNotFound] = useState(false);
+  const [roomCount, setRoomCount] = useState(1);
+  const [checkIn, setCheckIn] = useState('');
+  const [checkOut, setCheckOut] = useState('');
+  const [selectedRoom, setSelectedRoom] = useState('');
 
   useEffect(() => {
     const fetchHotelDetails = async () => {
@@ -29,17 +33,19 @@ const HotelDetails = () => {
   if (!hotel) return <div className="hotel-details-loading">Loading...</div>;
 
   const handleBookNow = () => {
-    navigate('/payment', {
-      state: {
-        bookingType: 'hotel',
-        bookingDetails: {
-          name: hotel.name,
-          location: hotel.location,
-          price: hotel.price,
-          amenities: hotel.amenities,
-        }
-      }
-    });
+    if (!selectedRoom) {
+      alert("Please select a room.");
+      return;
+    }
+    if (!checkIn || !checkOut) {
+      alert("Please select check-in and check-out dates.");
+      return;
+    }
+    if (new Date(checkIn) >= new Date(checkOut)) {
+      alert("Check-out date must be after check-in date.");
+      return;
+    }
+    window.location.href = "https://buy.stripe.com/test_14A00l1vI2a5bSA9dMaAw00";
   };
 
   const USD_TO_INR = 83; // Update this rate as needed
@@ -78,6 +84,53 @@ const HotelDetails = () => {
                   <li key={idx}>{amenity}</li>
                 ))}
               </ul>
+            </div>
+            <div className="hotel-booking-form">
+              <div className="form-row">
+                <label className="form-row-label" htmlFor="roomCount">Rooms:</label>
+                <input
+                  id="roomCount"
+                  type="number"
+                  min={1}
+                  max={hotel.availableRooms || 10}
+                  value={roomCount}
+                  onChange={e => setRoomCount(Number(e.target.value))}
+                />
+              </div>
+              <div className="form-row">
+                <label className="form-row-label" htmlFor="checkIn">Check-in:</label>
+                <input
+                  id="checkIn"
+                  type="date"
+                  value={checkIn}
+                  onChange={e => setCheckIn(e.target.value)}
+                />
+              </div>
+              <div className="form-row">
+                <label className="form-row-label" htmlFor="checkOut">Check-out:</label>
+                <input
+                  id="checkOut"
+                  type="date"
+                  value={checkOut}
+                  onChange={e => setCheckOut(e.target.value)}
+                />
+              </div>
+              <div className="form-row">
+                <label className="form-row-label" htmlFor="selectedRoom">Room:</label>
+                <select
+                  id="selectedRoom"
+                  value={selectedRoom}
+                  onChange={e => setSelectedRoom(e.target.value)}
+                  required
+                >
+                  <option value="">Select Room</option>
+                  {hotel.rooms && hotel.rooms.map((room, idx) => (
+                    <option key={room._id || idx} value={room.roomNumber}>
+                      {room.roomNumber} ({room.roomType}, Capacity: {room.capacity})
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
             <button className="hotel-details-book-btn" onClick={handleBookNow}>
               Book Now

@@ -19,7 +19,7 @@ import AIChatAssistant from './components/AIChatAssistant';
 import ProfilePage from './pages/ProfilePage';
 import BookingsPage from './pages/BookingsPage';
 import SettingsPage from './pages/SettingsPage';
-import PaymentPage from './pages/PaymentPage';
+// import PaymentPage from './pages/PaymentPage';
 import ConfirmationPage from './pages/ConfirmationPage';
 
 const App = () => {
@@ -53,7 +53,7 @@ const App = () => {
         <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
         <Route path="/bookings" element={<ProtectedRoute><BookingsPage /></ProtectedRoute>} />
         <Route path="/settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
-        <Route path="/payment" element={<PaymentPage />} />
+        {/* <Route path="/payment" element={<PaymentPage />} /> */}
         <Route path="/confirmation" element={<ConfirmationPage />} />
         
         {/* Auth routes - redirect to home if already logged in */}

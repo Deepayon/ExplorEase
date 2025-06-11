@@ -23,6 +23,10 @@ const HotelDetails = () => {
 
   const USD_TO_INR = 83;
 
+  const handleBookNow = () => {
+    window.location.href = "https://buy.stripe.com/test_14A00l1vI2a5bSA9dMaAw00";
+  };
+
   return (
     <div className="hotel-details-card">
       <h1 className="hotel-details-title">{hotel.name}</h1>
@@ -45,7 +49,7 @@ const HotelDetails = () => {
           ))}
         </ul>
       </div>
-      <button className="hotel-details-book-btn">
+      <button className="hotel-details-book-btn" onClick={handleBookNow}>
         Book Now
       </button>
     </div>

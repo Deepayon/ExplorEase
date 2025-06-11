@@ -22,20 +22,7 @@ const BookingModal = ({ flight, onClose, onBookingComplete }) => {
   };
 
   const handleBooking = () => {
-    // Prepare the booking details for payment page
-    navigate('/payment', {
-      state: {
-        bookingType: 'flight',
-        bookingDetails: {
-          airline: flight.airline,
-          flightNumber: flight.flightNumber,
-          origin: flight.origin,
-          destination: flight.destination,
-          price: flight.price,
-          // add more fields if needed
-        }
-      }
-    });
+    window.location.href = "https://buy.stripe.com/test_14A00l1vI2a5bSA9dMaAw00";
   };
 
   return (
