@@ -6,7 +6,6 @@
   <img src="https://img.shields.io/badge/React-18+-blue?style=for-the-badge&logo=react" />
   <img src="https://img.shields.io/badge/Node.js-Express-green?style=for-the-badge&logo=node.js" />
   <img src="https://img.shields.io/badge/MongoDB-Atlas-success?style=for-the-badge&logo=mongodb" />
-  <img src="https://img.shields.io/badge/OpenAI-GPT-4-informational?style=for-the-badge&logo=openai" />
   <img src="https://img.shields.io/badge/Stripe-Payments-purple?style=for-the-badge&logo=stripe" />
 </p>
 
