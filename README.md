@@ -1,140 +1,120 @@
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=25&pause=1000&center=true&vCenter=true&width=600&lines=ExploreEase+%7C+AI+All-in-One+Travel+Platform;Plan+Trips+Smartly+with+AI+Power!" alt="Typing SVG" />
-</p>
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=36BCF7FF&width=700&lines=🌍+ExplorEase+–+Your+Smart+Travel+Buddy;MERN+App+for+Modern+Travel+Planning)
 
-<p align="center">
-  <img src="https://img.shields.io/badge/React-18+-blue?style=for-the-badge&logo=react" />
-  <img src="https://img.shields.io/badge/Node.js-Express-green?style=for-the-badge&logo=node.js" />
-  <img src="https://img.shields.io/badge/MongoDB-Atlas-success?style=for-the-badge&logo=mongodb" />
-  <img src="https://img.shields.io/badge/Stripe-Payments-purple?style=for-the-badge&logo=stripe" />
-</p>
+# ExplorEase – Your Smart Travel Buddy
+
+ExplorEase is a full-stack MERN travel application aimed at providing a seamless travel planning and hotel booking experience. The project is under active development, with core features working and more (including AI-powered tools) planned for future releases.
 
 ---
 
-# 🌍 ExploreEase – AI-Powered Travel Assistant
+## 🛠️ Tech Stack
 
-ExploreEase is a full-stack travel web app that helps users book flights & hotels, generate itineraries using OpenAI, make payments with Stripe, and interact with a real-time AI travel assistant.
-
----
-
-## 🧠 Tech Stack
-
-### 🎨 Frontend
-
-| Tech         | Description                            |
-|--------------|----------------------------------------|
-| React 18+    | UI library (Vite-powered)              |
-| Axios        | API communication                      |
-| React Router | SPA routing                            |
-| Material UI  | UI components                          |
-| Tailwind CSS | Utility-first CSS (optional)           |
-| Framer Motion| Animations                             |
-
-### 🛠️ Backend
-
-| Tech          | Description                               |
-|---------------|-------------------------------------------|
-| Node.js       | JavaScript runtime                        |
-| Express.js    | Server framework                          |
-| MongoDB       | NoSQL database                            |
-| Mongoose      | MongoDB ORM                               |
-| Passport.js   | User authentication (local strategy)      |
-| CORS          | Cross-origin middleware                   |
-
-### 🧠 AI Assistant
-
-| Tech        | Description                                 |
-|-------------|---------------------------------------------|
-| OpenAI API  | GPT-based travel assistant & itinerary      |
-| Route       | `POST /api/ai/chat` for OpenAI integration  |
-
-### 💳 Payments
-
-| Tech     | Description                          |
-|----------|--------------------------------------|
-| Stripe   | Payment gateway (Stripe Checkout)    |
-| Stripe.js| Frontend integration for checkout UI |
+- **Frontend:** React.js, Tailwind CSS  
+- **Backend:** Node.js, Express.js  
+- **Database:** MongoDB (Mongoose ODM)  
+- **Authentication:** JWT, Cookies  
+- **Payments:** Stripe / Razorpay (planned)  
+- **State Management:** Context API / Redux (optional)  
+- **Others:** Axios, dotenv, bcrypt, Cloudinary (for media), Lottie animations  
+- **AI Integration:** (Planned) Chatbot/Smart Search
 
 ---
 
-## 📂 Project Structure
+## 🚀 Features
 
-/client → React frontend
-/server → Node + Express backend
-└── /routes → API endpoints
-└── /controllers → Logic handling
-└── /models → MongoDB schemas
-/assets → Media and UI assets
-.env → Environment config
+**Implemented:**
+- 🧭 Hotel exploration with filters (location, rating, price)
+- 🔐 Secure user authentication (JWT-based login/signup)
+- 📦 Hotel detail page with booking flow
+- 📱 Responsive UI and basic animation
+- 📤 Hotel image upload (Cloudinary)
+- 🔍 Search functionality across listings
 
-yaml
-Copy
-Edit
-
----
-
-## 🖥️ Preview
-
-<p align="center">
-  <img src="https://github.com/Deepayon/ExplorEase/raw/main/assets/ui-preview.png" alt="UI Preview" width="800" />
-</p>
+**Planned / In Scope:**
+- 💳 Payment integration (Stripe / Razorpay)
+- 🧾 Booking history & user dashboard
+- 🛠️ Admin dashboard
+- 🤖 AI-powered travel assistant/chatbot
+- ✨ More UI animations and improvements
 
 ---
 
-## 🚀 Setup Instructions
+## 📸 Screenshots
 
-### 🔧 Prerequisites
-
-- Node.js ≥ 16
-- MongoDB Atlas URI
-- OpenAI API Key
-- Stripe Secret Key
+_Add screenshots or a Loom demo link here_
 
 ---
 
-### 📥 Clone & Install
+## 🧑‍💻 Getting Started
+
+### Prerequisites
+
+- Node.js (v18+)
+- MongoDB (local or Atlas)
+- Stripe/Razorpay API keys (for payment features)
+
+### Installation
 
 ```bash
-git clone https://github.com/Deepayon/ExplorEase.git
-cd ExplorEase
-Backend Setup (/server)
-bash
-Copy
-Edit
-cd server
+# Clone the repo
+git clone https://github.com/deepayandas/explorease.git
+cd explorease
+
+# Install backend dependencies
+cd backend
 npm install
 
-# .env file example:
-# MONGODB_URI=your_mongo_uri
-# SESSION_SECRET=some_secret
-# OPENAI_API_KEY=sk-XXXXXX
-# STRIPE_SECRET_KEY=sk_test_XXXX
-# CLIENT_URL=http://localhost:3000
+# Set up environment variables
+cp .env.example .env
 
+# Start backend server
 npm run dev
-Frontend Setup (/client)
-bash
-Copy
-Edit
-cd ../client
+
+# In a new terminal, set up frontend
+cd ../frontend
 npm install
-npm run dev
-🌐 Key API Routes
-Endpoint	Method	Description
-/api/auth/signup	POST	User registration
-/api/auth/login	POST	User login
-/api/hotels/:id	GET	Fetch hotel details
-/api/flights	GET	Search flights
-/api/ai/chat	POST	Ask AI travel questions
-/api/payment/checkout	POST	Stripe payment session
+npm start
+```
 
-🧪 Sample .env File
-env
-Copy
-Edit
-PORT=5000
-MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/exploreasedb
-SESSION_SECRET=supersecretkey
-OPENAI_API_KEY=sk-xxxxxx
-STRIPE_SECRET_KEY=sk_test_xxxxxx
-CLIENT_URL=http://localhost:3000
+### Environment Variables
+
+- Copy `.env.example` to `.env` in `/backend` and `/frontend` as needed.
+- Fill in your own MongoDB URI, JWT secret, Stripe/Razorpay keys, Cloudinary credentials, etc.
+
+---
+
+## 🗂️ Project Structure
+
+```
+/backend         → Express API, DB models, routes, controllers
+/frontend        → React app (components, pages, assets)
+.env.example     → Example environment config
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!  
+Check the [issues page](https://github.com/deepayandas/explorease/issues).
+
+---
+
+## 📄 License
+
+This project is [MIT](LICENSE) licensed.
+
+---
+
+## 🙏 Acknowledgements
+
+- [React](https://reactjs.org/)
+- [Node.js](https://nodejs.org/)
+- [MongoDB](https://www.mongodb.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Stripe](https://stripe.com/)
+- [Razorpay](https://razorpay.com/)
+- [Cloudinary](https://cloudinary.com/)
+
+---
+
+> _“Travel is the only thing you buy that makes you richer.”_
