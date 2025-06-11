@@ -81,14 +81,25 @@ npm start
 - Fill in your own MongoDB URI, JWT secret, Stripe/Razorpay keys, Cloudinary credentials, etc.
 
 ---
+ExploreEase/
+├── client/               🖥️ React frontend (Vite, MUI, Axios)
+│   ├── components/       🔧 Reusable UI components
+│   ├── pages/            📄 App pages (Home, Login, Hotels, etc.)
+│   ├── services/         🔌 API handling (Axios configs)
+│   └── assets/           🖼️  Icons, images, Lottie animations
+│
+├── server/               ⚙️ Node + Express backend
+│   ├── routes/           🌐 API endpoints (auth, flights, hotels, etc.)
+│   ├── controllers/      🧠 Business logic and request handling
+│   ├── models/           🗃️ Mongoose schemas for MongoDB
+│   ├── middleware/       🛡️ Auth, error handling, validation
+│   └── config/           🔧 DB connection, third-party keys
+│
+├── assets/               📁 Shared visuals for docs/UI
+├── .env                  🔐 Environment variables (OpenAI, MongoDB, Stripe)
+├── README.md             📘 Project documentation
+└── package.json          📦 Dependency management
 
-## 🗂️ Project Structure
-
-```
-/backend         → Express API, DB models, routes, controllers
-/frontend        → React app (components, pages, assets)
-.env.example     → Example environment config
-```
 
 ---
 
