@@ -6,7 +6,7 @@ const TravelModes = () => {
 
   const modes = [
     { id: "flight", icon: "✈️", label: "Flights" },
-    { id: "hotel", icon: "🏨", label: "Hotels" },
+    // { id: "hotel", icon: "🏨", label: "Hotels" },
     // { id: 'car', icon: '🚗', label: 'Cars' },
   ];
 

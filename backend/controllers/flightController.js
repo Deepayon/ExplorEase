@@ -34,21 +34,23 @@ exports.getFlightById = async (req, res) => {
 exports.searchFlights = async (req, res) => {
     try {
       const { from, to, date } = req.query;
+      console.log('Received search query:', req.query);
+      
       const query = {};
       
-      if (from) query.from = new RegExp(from, 'i');
-      if (to) query.to = new RegExp(to, 'i');
-      if (date) {
-        // Parse the date string to UTC to avoid timezone issues
-        const searchDate = new Date(date);
-        const startOfDay = new Date(searchDate.setHours(0, 0, 0, 0));
-        const endOfDay = new Date(searchDate.setHours(23, 59, 59, 999));
+      if (from) query.origin = new RegExp(from, 'i');
+      if (to) query.destination = new RegExp(to, 'i');
+      // if (date) {
+      //   // Parse the date string to UTC to avoid timezone issues
+      //   const searchDate = new Date(date);
+      //   const startOfDay = new Date(searchDate.setHours(0, 0, 0, 0));
+      //   const endOfDay = new Date(searchDate.setHours(23, 59, 59, 999));
         
-        query.departureTime = {
-          $gte: startOfDay,
-          $lte: endOfDay
-        };
-      }
+      //   query.departureTime = {
+      //     $gte: startOfDay,
+      //     $lte: endOfDay
+      //   };
+      // }
       
       const flights = await Flight.find(query);
       res.json(flights);
