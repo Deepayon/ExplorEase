@@ -57,7 +57,7 @@ const FlightDetail = () => {
 
     try {
       const authToken = localStorage.getItem('authToken');
-      await axios.post('http://localhost:5000/api/bookings', 
+      await axios.post('https://xplorease.onrender.com/api/bookings', 
         {
           flightId: flight._id,
         },

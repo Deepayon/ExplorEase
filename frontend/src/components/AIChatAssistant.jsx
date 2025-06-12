@@ -3,7 +3,7 @@ import { Box, TextField, IconButton, Paper, Typography, CircularProgress } from 
 import SendIcon from '@mui/icons-material/Send';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000';
+const API_URL = 'https://xplorease.onrender.com';
 
 const AIChatAssistant = () => {
   const [messages, setMessages] = useState([

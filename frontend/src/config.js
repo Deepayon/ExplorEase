@@ -1,6 +1,6 @@
 // config.js
 const config = {
-  backendURL: 'http://localhost:5000',
+  backendURL: 'https://xplorease.onrender.com',
 };
 
 export default config;
