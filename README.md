@@ -1,6 +1,6 @@
 ![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=36BCF7FF&width=700&lines=🌍+ExplorEase+–+Your+Smart+Travel+Buddy;MERN+App+for+Modern+Travel+Planning)
 
-# ExplorEase – Your Smart Travel Buddy
+# ExplorEase – Simplifying Travel with Personalized Solution​
 
 ExplorEase is a full-stack MERN travel application aimed at providing a seamless travel planning and hotel booking experience. The project is under active development, with core features working and more (including AI-powered tools) planned for future releases.
 
@@ -38,19 +38,13 @@ ExplorEase is a full-stack MERN travel application aimed at providing a seamless
 
 ---
 
-## 📸 Screenshots
-
-_Add screenshots or a Loom demo link here_
-
----
-
 ## 🧑‍💻 Getting Started
 
 ### Prerequisites
 
 - Node.js (v18+)
 - MongoDB (local or Atlas)
-- Stripe/Razorpay API keys (for payment features)
+- Stripe API keys (for payment features)
 
 ### Installation
 
@@ -81,25 +75,14 @@ npm start
 - Fill in your own MongoDB URI, JWT secret, Stripe/Razorpay keys, Cloudinary credentials, etc.
 
 ---
-ExploreEase/
-├── client/               🖥️ React frontend (Vite, MUI, Axios)
-│   ├── components/       🔧 Reusable UI components
-│   ├── pages/            📄 App pages (Home, Login, Hotels, etc.)
-│   ├── services/         🔌 API handling (Axios configs)
-│   └── assets/           🖼️  Icons, images, Lottie animations
-│
-├── server/               ⚙️ Node + Express backend
-│   ├── routes/           🌐 API endpoints (auth, flights, hotels, etc.)
-│   ├── controllers/      🧠 Business logic and request handling
-│   ├── models/           🗃️ Mongoose schemas for MongoDB
-│   ├── middleware/       🛡️ Auth, error handling, validation
-│   └── config/           🔧 DB connection, third-party keys
-│
-├── assets/               📁 Shared visuals for docs/UI
-├── .env                  🔐 Environment variables (OpenAI, MongoDB, Stripe)
-├── README.md             📘 Project documentation
-└── package.json          📦 Dependency management
 
+## 🗂️ Project Structure
+
+```
+/backend         → Express API, DB models, routes, controllers
+/frontend        → React app (components, pages, assets)
+.env.example     → Example environment config
+```
 
 ---
 
