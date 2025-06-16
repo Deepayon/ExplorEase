@@ -4,6 +4,10 @@
 
 ExplorEase is a full-stack MERN travel application aimed at providing a seamless travel planning and hotel booking experience. The project is under active development, with core features working and more (including AI-powered tools) planned for future releases.
 
+# Live
+
+https://xplorease.netlify.app/
+
 ---
 
 ## 🛠️ Tech Stack
